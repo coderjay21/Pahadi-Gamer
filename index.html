@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pahadi Gamer Official</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 🔝 Navigation -->
+  <nav class="navbar">
+    <div class="logo"><img src="logo.webp" alt="logo"></div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#topVideo">Videos</a></li>
+      <li><a href="#">Giveaways</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🎬 Pahadi Intro (only 20vh height) -->
+  <section class="hero-small">
+    <video autoplay muted loop class="hero-video">
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-text">
+      <h1>Pahadi Gamer </h1>
+      <p>#SniperOfTheYear</p>
+    </div>
+    
+  </section>
+
+  <!-- 👇 Mini Section Below Pahadi INTRO -->
+<section class="mini-section">
+  <div class="mini-container">
+    <div class="sub-count">
+      <h2>🔴 Live Subscribers</h2>
+      <p id="subscriberCount">Loading...</p>
+    </div>
+    <div class="mini-text">
+      <p>India’s Most Dangerous Free Fire Sniper Player🔥</p>
+      <a href="https://www.youtube.com/@pahadigamer_official" target="_blank" class="btn-subscribe">Subscribe Now</a>
+    </div>
+  </div>
+</section>
+
+ <!-- TOP VIDEOS  -->
+
+<section id="topVideo" class="videos-section">
+  <h2>Latest Videos</h2>
+  <div class="video-grid">
+
+    <!-- ✅ Video 1 Block -->
+    <div class="video-thumbnail" data-video-id="HqSxCfitKCE">
+      <img src="https://i.ytimg.com/vi/HqSxCfitKCE/hqdefault.jpg" alt="Video Thumbnail" />
+      <div class="play-button">▶</div>
+    </div>
+    
+    <!-- ✅ Video 2 Block -->
+    
+    <div class="video-thumbnail" data-video-id="Rkt6BKeOLDU">
+      <img src="https://i.ytimg.com/vi/Rkt6BKeOLDU/hqdefault.jpg" alt="Video Thumbnail" />
+      <div class="play-button">▶</div>
+    </div>
+
+    <!-- ✅ Video 3 Block -->
+    
+    <div class="video-thumbnail" data-video-id="xzZ1Fz0iZXE">
+        <img src="https://i.ytimg.com/vi/xzZ1Fz0iZXE/hqdefault.jpg" alt="Video Thumbnail" />
+        <div class="play-button">▶</div>
+    </div>
+    
+  </div>
+</section>
+
+
+<script>
+  // Fake subscriber count for now
+  let count = 25100000; // 25.1M
+  const subEl = document.getElementById("subscriberCount");
+
+  function updateSubCount() {
+    count += Math.floor(Math.random() * 10); // Fake growth
+    subEl.innerText = count.toLocaleString() + " Subscribers";
+  }
+
+  setInterval(updateSubCount, 3000);
+  updateSubCount();
+
+  //TOP VIDEO PLAY 
+
+    document.querySelectorAll('.video-thumbnail').forEach(div => {
+    div.addEventListener('click', function () {
+      const videoId = this.getAttribute('data-video-id');
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`);
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'autoplay; encrypted-media');
+      iframe.setAttribute('allowfullscreen', true);
+      iframe.style.width = '100%';
+      iframe.style.aspectRatio = '16/9';
+      this.innerHTML = '';
+      this.appendChild(iframe);
+    });
+  });
+</script>
+</body>
+</html>
