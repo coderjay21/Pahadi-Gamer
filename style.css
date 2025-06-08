@@ -209,7 +209,7 @@ h1, h2 {
     padding: 3px;
     background: linear-gradient(135deg, #ff005d, #2a62b7, #00ffcc);
      background-size: 400% 400%;
-  animation: gradientMove 6s ease infinite;
+  animation: gradientMove 2s ease infinite;
 }
 
 
