@@ -9,27 +9,31 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #000;
+    background: linear-gradient(120deg, #000000, #2c003e, #7e0023);
     color: white;
 }
 
-h1, h2 {
-  font-family: 'Orbitron', sans-serif;
+h1,
+h2 {
+    font-family: 'Orbitron', sans-serif;
 }
 
 /* 🔝 Navbar */
 .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(42 98 183);
     padding: 15px 30px;
-    gap: 5px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    z-index: 100;
+    color: white;
     font-size: clamp(12px, 3vw, 1.2rem);
 }
+
+
 
 .navbar .logo img {
     max-height: 40px;
@@ -39,28 +43,58 @@ h1, h2 {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    border-radius: 26px;
+    padding: 6px 510x;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .nav-links li a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
 }
 
+.nav-links li a {
+    display: inline-block;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #2a62b7;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.nav-links li a:hover::before {
+    left: 0;
+}
+
 .nav-links li a:hover {
-    color: rgb(0, 0, 0);
-    transition: 100ms all ease-out;
-    border-radius: 8px;
-    background-color: white;
-    padding: 3px;
-    color: rgb(42 98 183);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* 🎬 Small Hero Section */
 .hero-small {
     position: relative;
-    height: 20vh;
+    height: 35vh;
     width: 100%;
     overflow: hidden;
 }
@@ -79,14 +113,16 @@ h1, h2 {
 
 /* 📝 Text on Video */
 .hero-text {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
     text-align: center;
-    background: rgba(0, 0, 0, 0.619);
+    padding: 10px 20px;
+    border-radius: 10px;
 }
+
 
 .hero-text h1 {
     font-size: clamp(16px, 5vw, 28px);
@@ -155,7 +191,7 @@ h1, h2 {
 
 .mini-text p {
     margin: 20px 0;
-    font-size: clamp(12px,3vw,18px);
+    font-size: clamp(12px, 3vw, 18px);
     color: white;
     font-weight: bolder;
 }
@@ -208,20 +244,28 @@ h1, h2 {
     overflow: hidden;
     padding: 3px;
     background: linear-gradient(135deg, #ff005d, #2a62b7, #00ffcc);
-     background-size: 400% 400%;
-  animation: gradientMove 2s ease infinite;
+    background-size: 400% 400%;
+    animation: gradientMove 2s ease infinite;
 }
 
 
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .video-thumbnail:hover {
-  background-position: 100% 0;
+    background-position: 100% 0;
 }
 
 .video-thumbnail img {
