@@ -57,6 +57,7 @@ h2 {
     color: #ffffff;
     text-decoration: none;
     font-weight: 500;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .nav-links li a {
@@ -90,6 +91,58 @@ h2 {
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Responsive Nav */
+@media (max-width: 1160px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+   background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* 🎬 Small Hero Section */
 .hero-small {
@@ -126,14 +179,15 @@ h2 {
 
 .hero-text h1 {
     font-size: clamp(16px, 5vw, 28px);
-    color: rgb(42 98 183);
-    text-shadow: 2px 2px 10px #000;
-    animation: fadeIn 1.5s ease-in-out;
+    background: linear-gradient(to right, #ff2c74, #0e2bd0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease;
 }
 
 .hero-text p {
     font-size: 1rem;
-    color: #ffffffcc;
+    color: #ddd;
     margin-top: 5px;
     animation: slideUp 1.5s ease-in-out;
 }
@@ -197,17 +251,45 @@ h2 {
 }
 
 .btn-subscribe {
-    padding: 10px 20px;
-    background: #ff0000;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+  background: linear-gradient(85deg, #ff4141, #ff4b2b);
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(239, 41, 41, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-subscribe::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #ffffff44 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.6s;
+}
+
+.btn-subscribe:hover::before {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .btn-subscribe:hover {
-    background: #cc0000;
+  background: linear-gradient(45deg, #ff4b2b, #ff4141);
+  box-shadow: 0 0 30px #ff4b2b, 0 0 60px #ff416c;
+  transform: scale(1.05);
 }
+
 
 /* 👇 Animation for Count */
 @keyframes pulse {
@@ -246,6 +328,7 @@ h2 {
     background: linear-gradient(135deg, #ff005d, #2a62b7, #00ffcc);
     background-size: 400% 400%;
     animation: gradientMove 2s ease infinite;
+     transition: transform 0.3s;
 }
 
 
@@ -266,6 +349,7 @@ h2 {
 
 .video-thumbnail:hover {
     background-position: 100% 0;
+      transform: scale(1.03);
 }
 
 .video-thumbnail img {
@@ -273,6 +357,7 @@ h2 {
     display: block;
     border-radius: 8px;
     border: none;
+      transition: 0.3s;
 }
 
 .play-button {
@@ -284,4 +369,8 @@ h2 {
     color: white;
     text-shadow: 0 0 10px black;
     pointer-events: none;
+     transition: 0.3s;
+}
+.video-thumbnail:hover .play-button {
+text-shadow: 2px 2px 10px rgb(32, 110, 200);
 }

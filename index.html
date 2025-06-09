@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pahadi Gamer Official</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
   <!-- 🔝 Navigation -->
   <nav class="navbar">
     <div class="logo"><img src="logo.webp" alt="logo"></div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
+     <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
       <li><a href="#topVideo">Videos</a></li>
       <li><a href="#">Giveaways</a></li>
       <li><a href="#">Contact</a></li>
@@ -79,6 +81,14 @@
 
 
 <script>
+  //HAMBURGER
+    function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    if (nav) {
+      nav.classList.toggle("active");
+    }
+  }
+
   // Fake subscriber count for now
   let count = 25100000; // 25.1M
   const subEl = document.getElementById("subscriberCount");
